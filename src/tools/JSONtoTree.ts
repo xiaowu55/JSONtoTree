@@ -25,6 +25,5 @@ export function transformData(obj: JsonTreeNode, parentKey = ''): Array<object> 
             });
         }
     }
-    console.log(result);
     return result;
 }

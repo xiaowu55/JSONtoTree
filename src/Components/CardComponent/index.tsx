@@ -4,6 +4,10 @@ import JsonContext from '../../context/JsonContext';
 import { isJSON } from '../../tools/isJSON';
 import { transformData } from '../../tools/JSONtoTree';
 
+interface CardComponentProps {
+    style?: React.CSSProperties;
+}
+
 function renderCard(data: string) {
     const obj = JSON.parse(data);
     const result = transformData(obj)
@@ -16,11 +20,12 @@ function renderCard(data: string) {
     )
 }
 
-const CardComponent: React.FC = () => {
+const CardComponent: React.FC<CardComponentProps> = ({style}) => {
     const { jsonDate } = useContext(JsonContext);
 
 
-    return (<Card>
+    return (<Card
+        style={style}>
         {
             isJSON(jsonDate) ?
                 renderCard(jsonDate) :
