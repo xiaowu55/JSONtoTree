@@ -1,58 +1,42 @@
 import React, { useContext } from 'react';
-import { Card } from 'antd';
+import { Card, Tree } from 'antd';
 import JsonContext from '../../context/JsonContext';
+import { isJSON } from '../../tools/isJSON';
+import { transformData } from '../../tools/JSONtoTree';
 
-
-function isJSON(str:string) {
-    if (typeof str == 'string') {
-        try {
-            const obj = JSON.parse(str);
-            if (typeof obj == 'object' && obj) {
-                console.log('successsful')
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (e) {
-            console.log('error：' + str + '!!!' + e);
-            return false;
-        }
-    }
-    console.log('It is not a string!')
+function renderCard(data: string) {
+    const obj = JSON.parse(data);
+    const result = transformData(obj)
+    return (
+        <Tree
+            showLine
+            defaultExpandAll={true}
+            treeData={result}
+        />
+    )
 }
-
 
 const CardComponent: React.FC = () => {
     const { jsonDate } = useContext(JsonContext);
 
 
-    const jsonData1 =
-    {
-        "a": {
-            "a.a": "1",
-            "a.b": "2",
-        },
-        "b": "3"
-    }
-
-    // for (const [key, value] of Object.entries(jsonData1)) {
-    //     if (value instanceof Object)
-    //         return (
-    //             <Card >
-    //                 <p>{`${key}:${value}`}</p>
-    //             </Card>)
-    // }
-
-    return isJSON(jsonDate) ? (
-        <Card>
-            <p>{jsonDate.toString()}</p>
-        </Card>
-    ) : (
-        <Card>
-            <p>JSON格式不合法</p>
-        </Card>
-    )
+    return (<Card>
+        {
+            isJSON(jsonDate) ?
+                renderCard(jsonDate) :
+                <p>JSON格式不合法</p>
+        }
+    </Card>)
 }
 
 export default CardComponent;
+
+//测试数据
+// const jsonData1 =
+// {
+//     "a": {
+//         "a.a": "1",
+//         "a.b": "2"
+//     },
+//     "b": "3"
+// }
