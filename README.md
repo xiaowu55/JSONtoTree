@@ -15,26 +15,32 @@
 ```bash
 git clone https://github.com/xiaowu55/JSONtoTree
 cd jsontotree
+```
 
 安装依赖：
-
+```bash
 npm install
+```
 
 启动开发服务器：
-
+```bash
 npm run dev
+```
 
 构建项目：
-
+```bash
 npm run build
+```
 
 运行代码检查：
-
+```bash
 npm run lint
+```
 
 预览构建结果：
-
+```bash
 npm run preview
+```
 
 脚本说明
 dev: 启动Vite开发服务器。
