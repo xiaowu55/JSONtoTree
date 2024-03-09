@@ -25,6 +25,7 @@ const InputComponent: React.FC<InputComponentProps> = ({style}) => {
                 style={style}
                 showCount
                 onChange={(e) => onChangeHandler(e, setJsonDate)}
+                placeholder='please input your json data here...'
             />
             )
 

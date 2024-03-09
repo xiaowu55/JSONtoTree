@@ -25,7 +25,8 @@ const CardComponent: React.FC<CardComponentProps> = ({style}) => {
 
 
     return (<Card
-        style={style}>
+        style={style}
+        title={'RESULT'}>
         {
             isJSON(jsonDate) ?
                 renderCard(jsonDate) :
@@ -36,12 +37,3 @@ const CardComponent: React.FC<CardComponentProps> = ({style}) => {
 
 export default CardComponent;
 
-//测试数据
-// const jsonData1 =
-// {
-//     "a": {
-//         "a.a": "1",
-//         "a.b": "2"
-//     },
-//     "b": "3"
-// }

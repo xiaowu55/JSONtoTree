@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# jsontotree
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个使用React和Ant Design构建的JSON到树形结构转换器。
 
-Currently, two official plugins are available:
+## 特点
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 使用最新的React 18版本。
+- 利用Ant Design来提供优雅的UI组件。
+- 支持ESLint和TypeScript，确保代码质量。
 
-## Expanding the ESLint configuration
+## 开始使用
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+首先，克隆仓库到本地：
 
-- Configure the top-level `parserOptions` property like this:
+```bash
+git clone https://github.com/xiaowu55/JSONtoTree
+cd jsontotree
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+安装依赖：
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+npm install
+
+启动开发服务器：
+
+npm run dev
+
+构建项目：
+
+npm run build
+
+运行代码检查：
+
+npm run lint
+
+预览构建结果：
+
+npm run preview
+
+脚本说明
+dev: 启动Vite开发服务器。
+build: 先使用TypeScript编译代码，然后构建项目。
+lint: 运行ESLint进行代码检查。
+preview: 预览构建的项目。
+依赖说明
+react 和 react-dom: 构建用户界面的JavaScript库。
+antd: Ant Design UI框架，提供了一套丰富的React UI组件。
+typescript: JavaScript的超集，添加了类型系统和对ES6+的支持。
+eslint 和相关插件: 用于静态检查JavaScript和TypeScript代码，帮助发现问题并保持代码风格一致。
+贡献
+欢迎贡献代码！请提交Pull Request或者为项目报告Issues。
+
+许可证
+MIT
